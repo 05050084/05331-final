@@ -1,0 +1,25 @@
+%fun1函式
+function vp=fun1(t,v)
+  if t>=0 & t<=5
+    vp=-v+t;
+   else
+    vp=-v;
+   endif
+endfunction
+
+
+clear all;
+close all;
+%y'=f(t,y)
+%[t,y]=ode45(odefun_handle,tspau,yo,options)
+%t->y對應之時間  y->解y  odefun_handle->f(t,y)之函數握把 
+%tspau->[to tend]積分之起點與終點  options->需要時才用
+
+%解(dy/dt)+2y=0; y(0)=1
+%解y'=(dy/dt)=-2y
+%主程式
+[t,y]=ode45(@fun1,[0 10],0);
+plot(t,y);
+grid on;
+%橫軸時間
+%縱軸y值
